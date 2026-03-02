@@ -2,25 +2,25 @@
 
 A lightweight, **zero-dependency** time formatting, parsing and manipulation library for JavaScript/TypeScript.
 
-- ✅ **Format** dates with flexible token-based templates
-- ✅ **Parse** date strings (ISO 8601, US-style, Unix timestamps, …)
-- ✅ **Relative time** ("2 hours ago", "in 3 days")
-- ✅ **Duration** formatting ("1 hour 30 minutes")
-- ✅ **Calendar helpers** (add/subtract, startOf/endOf, isLeapYear, …)
-- ✅ **Multi-locale** (en, zh-CN, zh-TW, ja, ko, fr, de, es, ru)
-- ✅ **Timezone-aware** formatting via `Intl`
-- ✅ Dual ESM + CJS package with full TypeScript types
+- �?**Format** dates with flexible token-based templates
+- �?**Parse** date strings (ISO 8601, US-style, Unix timestamps, �?
+- �?**Relative time** ("2 hours ago", "in 3 days")
+- �?**Duration** formatting ("1 hour 30 minutes")
+- �?**Calendar helpers** (add/subtract, startOf/endOf, isLeapYear, �?
+- �?**Multi-locale** (en, zh-CN, zh-TW, ja, ko, fr, de, es, ru)
+- �?**Timezone-aware** formatting via `Intl`
+- �?Dual ESM + CJS package with full TypeScript types
 
 ---
 
 ## Installation
 
 ```bash
-npm install time-formatter
+npm install time-formatter-ts
 # or
-pnpm add time-formatter
+pnpm add time-formatter-ts
 # or
-yarn add time-formatter
+yarn add time-formatter-ts
 ```
 
 ---
@@ -28,27 +28,27 @@ yarn add time-formatter
 ## Quick Start
 
 ```ts
-import { format, fromNow, parse, formatDuration, add } from 'time-formatter'
+import { format, fromNow, parse, formatDuration, add } from 'time-formatter-ts'
 
 // Format a date
 format(new Date(), 'YYYY-MM-DD HH:mm:ss')
-// → '2026-02-27 14:30:05'
+// �?'2026-02-27 14:30:05'
 
 // Relative time
 fromNow(Date.now() - 5 * 60 * 1000)
-// → '5 minutes ago'
+// �?'5 minutes ago'
 
 // Parse a date string
 parse('Feb 27, 2026 3:30 PM')
-// → Date object
+// �?Date object
 
 // Format a duration
 formatDuration({ hours: 2, minutes: 30 })
-// → '2 hours 30 minutes'
+// �?'2 hours 30 minutes'
 
 // Calendar ops
 add(new Date(), 7, 'days')
-// → Date 7 days from now
+// �?Date 7 days from now
 ```
 
 ---
@@ -61,7 +61,7 @@ Format a `Date`, timestamp or ISO string using a template.
 
 ```ts
 format(new Date(), 'YYYY-MM-DD')                          // '2026-02-27'
-format(new Date(), 'dddd, MMMM D, YYYY', { locale: 'zh-CN' }) // '星期五, 二月 27, 2026'
+format(new Date(), 'dddd, MMMM D, YYYY', { locale: 'zh-CN' }) // '星期�? 二月 27, 2026'
 format(new Date(), 'HH:mm:ss [UTC]Z')                    // '14:30:05 UTC+08:00'
 format(new Date(), 'YYYY/MM/DD', { timezone: 'Asia/Tokyo' })
 ```
@@ -101,14 +101,14 @@ format(new Date(), 'YYYY/MM/DD', { timezone: 'Asia/Tokyo' })
 | `X`    | Unix timestamp (seconds)             | `1740650405`   |
 | `x`    | Unix timestamp (ms)                  | `1740650405000`|
 
-> Wrap literal text in `[...]` to escape tokens: `[Today is] YYYY-MM-DD` → `Today is 2026-02-27`
+> Wrap literal text in `[...]` to escape tokens: `[Today is] YYYY-MM-DD` �?`Today is 2026-02-27`
 
 #### Options
 
 | Option     | Type     | Default | Description                                |
 |------------|----------|---------|--------------------------------------------|
 | `locale`   | `string` | `'en'`  | Locale for month/weekday names             |
-| `timezone` | `string` | –       | IANA time zone (e.g. `'Asia/Shanghai'`)    |
+| `timezone` | `string` | �?      | IANA time zone (e.g. `'Asia/Shanghai'`)    |
 
 ---
 
@@ -138,7 +138,7 @@ Return a human-readable relative time string.
 ```ts
 fromNow(Date.now() - 30_000)                      // 'a few seconds ago'
 fromNow(Date.now() + 3600_000)                    // 'in an hour'
-fromNow(someDate, { locale: 'zh-CN' })            // '5 分钟前'
+fromNow(someDate, { locale: 'zh-CN' })            // '5 分钟�?
 fromNow(someDate, { withoutSuffix: true })        // '5 minutes'
 ```
 
@@ -147,7 +147,7 @@ fromNow(someDate, { withoutSuffix: true })        // '5 minutes'
 Calculate the difference between two dates in the given unit.
 
 ```ts
-diffIn(new Date(), someDate, 'days')   // → number (signed)
+diffIn(new Date(), someDate, 'days')   // �?number (signed)
 diffIn(a, b, 'months')
 ```
 
@@ -161,16 +161,16 @@ Format a `Duration` object as a string.
 
 ```ts
 formatDuration({ hours: 2, minutes: 30 })
-// → '2 hours 30 minutes'
+// �?'2 hours 30 minutes'
 
 formatDuration({ days: 1, hours: 3 }, { locale: 'zh-CN' })
-// → '1 天 3 小时'
+// �?'1 �?3 小时'
 
 formatDuration({ years: 1, months: 2, days: 3 }, { largest: 2 })
-// → '1 year 2 months'
+// �?'1 year 2 months'
 
 formatDuration({ hours: 1, minutes: 30 }, { delimiter: ', ' })
-// → '1 hour, 30 minutes'
+// �?'1 hour, 30 minutes'
 ```
 
 ### `formatMs(ms, options?)`
@@ -193,7 +193,7 @@ Convert between milliseconds and `Duration` objects.
 ```ts
 import { startOf, endOf, add, subtract, isBefore, isAfter,
          isSameDay, isLeapYear, daysInMonth, isToday, isWeekend,
-         unix, fromUnix, clampDate } from 'time-formatter'
+         unix, fromUnix, clampDate } from 'time-formatter-ts'
 
 startOf(new Date(), 'month')       // first moment of the month
 endOf(new Date(), 'day')           // 23:59:59.999 today
@@ -222,10 +222,10 @@ clampDate(date, min, max)          // Date clamped to [min, max]
 | Code    | Language           |
 |---------|--------------------|
 | `en`    | English (default)  |
-| `zh-CN` | 简体中文            |
+| `zh-CN` | 简体中�?           |
 | `zh-TW` | 繁體中文            |
-| `ja`    | 日本語              |
-| `ko`    | 한국어              |
+| `ja`    | 日本�?             |
+| `ko`    | 한국�?             |
 | `fr`    | Français           |
 | `de`    | Deutsch            |
 | `es`    | Español            |

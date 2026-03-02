@@ -4,6 +4,14 @@
   "description": "A lightweight, zero-dependency time formatting, parsing and manipulation library for JavaScript/TypeScript",
   "author": "cuijiying",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cuijiying/time-formatter-ts.git"
+  },
+  "homepage": "https://github.com/cuijiying/time-formatter-ts#readme",
+  "bugs": {
+    "url": "https://github.com/cuijiying/time-formatter-ts/issues"
+  },
   "keywords": [
     "time",
     "date",
