@@ -1,6 +1,6 @@
 {
   "name": "time-formatter-ts",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A lightweight, zero-dependency time formatting, parsing and manipulation library for JavaScript/TypeScript",
   "author": "cuijiying",
   "license": "MIT",
